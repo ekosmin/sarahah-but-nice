@@ -22452,7 +22452,8 @@ var Application = function (_React$Component) {
         ),
         _react2.default.createElement(_Counter2.default, { label: 'ur great' }),
         _react2.default.createElement(_Counter2.default, { label: 'u make good gamez' }),
-        _react2.default.createElement(_Counter2.default, { label: 'i luv u' })
+        _react2.default.createElement(_Counter2.default, { label: 'i luv u' }),
+        _react2.default.createElement(_Counter2.default, { label: 'nice butt' })
       );
     }
   }]);
