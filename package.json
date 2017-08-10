@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "compile": "webpack",
+    "deploy": "gh-pages -d www",
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -29,5 +30,8 @@
     "react-dom": "^15.6.1",
     "webpack": "^3.5.2",
     "webpack-dev-middleware": "^1.12.0"
+  },
+  "devDependencies": {
+    "gh-pages": "^1.0.0"
   }
 }
