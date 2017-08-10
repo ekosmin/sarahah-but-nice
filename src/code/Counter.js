@@ -1,3 +1,5 @@
+require('../css/Counter.css');
+
 import React from 'react';
  
 /**
@@ -25,18 +27,20 @@ class Counter extends React.Component {
  
   render() {
     return (
-      <button disabled={this.state.count == null}
-        onClick={() => {
-          let newCount = this.state.count + 1;
-          this.setState({ count: newCount });
+      <div className="counter">
+        <button disabled={this.state.count == null}
+          onClick={() => {
+            let newCount = this.state.count + 1;
+            this.setState({ count: newCount });
 
-          let update = {};
-          update[this.props.label] = newCount;
-          firebase.database().ref("/").update(update);
-        }}
-      >
-        {this.props.label}: {this.state.count}
-      </button>
+            let update = {};
+            update[this.props.label] = newCount;
+            firebase.database().ref("/").update(update);
+          }}
+        >
+          {this.props.label}: {this.state.count}
+        </button>
+      </div>
     );
   }
 }

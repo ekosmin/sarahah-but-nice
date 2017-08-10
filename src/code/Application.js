@@ -4,10 +4,11 @@ import Counter from './Counter';
 class Application extends React.Component { 
   render() {
     return (
-      <div>
-        <div> Press to Nicole she is great: </div>
+      <div className="column">
+        <div> Push to say nice things about Nicole: </div>
         <Counter label="ur great"/>
-        <Counter label="nice gamez" />
+        <Counter label="u make good gamez"/>
+        <Counter label="i luv u"/>
       </div>
     );
   }

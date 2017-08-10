@@ -32,6 +32,9 @@
     "webpack-dev-middleware": "^1.12.0"
   },
   "devDependencies": {
-    "gh-pages": "^1.0.0"
+    "css-loader": "^0.28.4",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "gh-pages": "^1.0.0",
+    "style-loader": "^0.18.2"
   }
 }
