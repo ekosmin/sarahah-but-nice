@@ -22435,28 +22435,44 @@ var Counter = function (_React$Component) {
   function Counter() {
     _classCallCheck(this, Counter);
 
-    var _this = _possibleConstructorReturn(this, (Counter.__proto__ || Object.getPrototypeOf(Counter)).call(this));
+    var _this2 = _possibleConstructorReturn(this, (Counter.__proto__ || Object.getPrototypeOf(Counter)).call(this));
 
-    _this.state = {
+    _this2.state = {
       count: 0
     };
-    return _this;
+
+    var db = firebase.database(),
+        ref = db.ref("/test");
+
+    var _this = _this2;
+    ref.once("value", function (data) {
+      var loadedState = data.val();
+      _this.setState({ count: loadedState });
+    });
+    return _this2;
   }
 
   _createClass(Counter, [{
-    key: 'render',
+    key: "render",
     value: function render() {
-      var _this2 = this;
+      var _this3 = this;
 
       return _react2.default.createElement(
-        'button',
-        {
-          onClick: function onClick() {
-            _this2.setState({ count: _this2.state.count + 1 });
-          }
-        },
-        'Count: ',
-        this.state.count
+        "div",
+        null,
+        "Press to Nicole she is great:",
+        _react2.default.createElement(
+          "button",
+          {
+            onClick: function onClick() {
+              var newCount = _this3.state.count + 1;
+              _this3.setState({ count: newCount });
+              firebase.database().ref("/").update({ test: newCount });
+            }
+          },
+          "Count: ",
+          this.state.count
+        )
       );
     }
   }]);
