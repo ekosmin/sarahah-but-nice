@@ -4,21 +4,38 @@ import React from 'react';
  * A counter button: tap the button to increase the count.
  */
 class Counter extends React.Component {
-  constructor() {
+  constructor(props) {
     super();
     this.state = {
-      count: 0,
+      count: null,
     };
+
+    const db = firebase.database(),
+          ref = db.ref("/" + props.label);
+
+    let _this = this;    
+    ref.once("value", function(data) {
+      let loadedValue = data.val();
+      if (loadedValue == null) {
+        loadedValue = 0;
+      }
+      _this.setState({ count: loadedValue });
+    });
   }
  
   render() {
     return (
-      <button
+      <button disabled={this.state.count == null}
         onClick={() => {
-          this.setState({ count: this.state.count + 1 });
+          let newCount = this.state.count + 1;
+          this.setState({ count: newCount });
+
+          let update = {};
+          update[this.props.label] = newCount;
+          firebase.database().ref("/").update(update);
         }}
       >
-        Count: {this.state.count}
+        {this.props.label}: {this.state.count}
       </button>
     );
   }
