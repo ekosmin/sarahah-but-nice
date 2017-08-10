@@ -22455,7 +22455,7 @@ var Counter = function (_React$Component) {
             _this2.setState({ count: _this2.state.count + 1 });
           }
         },
-        'Counts: ',
+        'Count: ',
         this.state.count
       );
     }
