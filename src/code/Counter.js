@@ -13,7 +13,7 @@ class Counter extends React.Component {
     };
 
     const db = firebase.database(),
-          ref = db.ref("/" + props.label);
+          ref = db.ref("/" + props.user + "/" + props.label);
 
     let _this = this;    
     ref.once("value", function(data) {
@@ -35,7 +35,7 @@ class Counter extends React.Component {
 
             let update = {};
             update[this.props.label] = newCount;
-            firebase.database().ref("/").update(update);
+            firebase.database().ref("/" + this.props.user).update(update);
           }}
         >
           {this.props.label}: {this.state.count}
