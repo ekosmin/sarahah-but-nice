@@ -22765,7 +22765,7 @@ var SignupForm = function (_React$Component) {
       return _react2.default.createElement(
         "div",
         null,
-        "sarahah-but-nice lets you define buttons people can click to say nice things about you. make a username, add some buttons, and share your personal link to get started:",
+        "sarahah-but-nice lets you define buttons people can click to say nice things about you. Make a username, add some buttons, and share your personal link to get started:",
         _react2.default.createElement("br", null),
         _react2.default.createElement("br", null),
         "Create a username:",
