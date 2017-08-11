@@ -22652,12 +22652,15 @@ var ButtonsForm = function (_React$Component) {
         var label = input.value,
             update = {};
 
+        console.log(label);
         if (label.length > 0) {
           update[label] = 0;
           firebase.database().ref("/" + _this2.props.user).update(update);
         }
       });
-      location.reload();
+      setTimeout(function () {
+        location.reload();
+      }, 1000);
     }
   }, {
     key: "createInput",
