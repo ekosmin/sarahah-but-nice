@@ -1,6 +1,7 @@
 import React from 'react';
 import Counter from './Counter';
 import ButtonsForm from './ButtonsForm';
+import SignupForm from './SignupForm';
 import urlParams from './url-params';
  
 class Application extends React.Component {
@@ -19,8 +20,6 @@ class Application extends React.Component {
       if (loadedState != null) {
         console.log("returning user");
         _this.setState({ userState: loadedState });
-      } else {
-        console.log("new user");
       }
     });
   }
@@ -30,7 +29,9 @@ class Application extends React.Component {
   }
 
   render() {
-    if (this.state.userState == null) {
+    if (urlParams.user == null) {
+      return <SignupForm />
+    } else if (this.state.userState == null) {
       return <ButtonsForm user={urlParams.user}/>
     } else {
       let buttons = [],
