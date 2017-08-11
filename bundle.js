@@ -22681,7 +22681,7 @@ var ButtonsForm = function (_React$Component) {
       return _react2.default.createElement(
         "div",
         null,
-        "Enter the buttons you would like below:",
+        "Enter the buttons you would like below (you can leave some blank):",
         _react2.default.createElement(
           "form",
           { onSubmit: this.handleSubmit },
