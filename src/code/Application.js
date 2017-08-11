@@ -25,21 +25,23 @@ class Application extends React.Component {
     });
   }
 
-  makeButton(label) {
-    return <Counter label={label} user={urlParams.user}/>;
+  makeButton(label, uid) {
+    return <Counter label={label} user={urlParams.user} key={uid}/>;
   }
 
   render() {
     if (this.state.userState == null) {
       return <ButtonsForm user={urlParams.user}/>
     } else {
+      let buttons = [],
+          uid = 0;
+      Object.keys(this.state.userState).forEach(key => {
+        buttons.push(this.makeButton(key, uid++));
+      });
       return (
         <div className="column">
           <div> Push to say nice things about {urlParams.user}: </div>
-          {this.makeButton("ur great")}
-          {this.makeButton("u make good gamez")}
-          {this.makeButton("i luv u")}
-          {this.makeButton("nice butt")}
+          {buttons}
         </div>
       );
     }
